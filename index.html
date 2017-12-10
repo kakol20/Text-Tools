@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Text Tools</title>
+
+	<!-- Resizable on mobile devices -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+
+	<!-- jQuery -- >
+	<script type="text/javascript" src="jQuery.js"></script>
+
+	<!-- Main Script -->
+	<script type="text/javascript" src="main.js"></script>
+</head>
+
+<body>
+	<div class="header">
+		<div>
+			<p>Text Tools</p>
+		</div>
+	</div> <br>
+
+	<div class="body">
+		<noscript>
+			Your browser doesn't support JavaScript or does not have JavaScript enabled <br> <br>
+		</noscript>
+
+		<!-- Remove Dupes -->
+		<div align="center">
+			<textarea rows="10" placeholder="Enter text here" id="removeDuplicatesInput"></textarea>
+		</div>
+		<button onclick="removeDupelicates()">
+			<div>
+				<p>Remove Duplicates</p>
+			</div>
+		</button> <br> <br>
+
+		<!-- Randomise -->
+		<div align="center">
+			<textarea rows="10" placeholder="Enter text here" id="randomiseInput"></textarea>
+		</div>
+		<button onclick="randomise()">
+			<div>
+				<p>Randomise</p>
+			</div>
+		</button> <br>
+	</div>
+</body>
+</html>
