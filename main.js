@@ -75,16 +75,15 @@ Notes: {
     Use a.split("\n") to split lines
 }
 */
-
 let key = (function() {
-	return {
-		random: function(a, b) {
-			b = b || 0;
+    return {
+        random: function(a, b) {
+            b = b || 0;
             let c = a - b;
             return (Math.random() * c) + b;
-		},
+        },
 
-		round: function(a, b, c) {
+        round: function(a, b, c) {
             b = b || "nearest";
             c = c || 0;
             if (b == "down") {
@@ -128,31 +127,31 @@ let key = (function() {
 
             return c;
         },
-	};
+    };
 })();
 
 let removeDupelicates = function() {
-	let a = document.getElementById('removeDuplicatesInput').value;
-	
-	let b = key.removeDupes(a.split("\n"));
-	console.log(b);
+    let a = document.getElementById('removeDuplicatesInput').value;
 
-	let output = "";
-	for (let i = 0; i < b.length; i++) {
-		if (i == b.length - 1) {
-			output = output + b[i];
-		} else {
-			output = output + b[i] + "\n";
-		}
-	}
+    let b = key.removeDupes(a.split("\n"));
+    console.log(b);
 
-	document.getElementById('removeDuplicatesInput').value = output;
+    let output = "";
+    for (let i = 0; i < b.length; i++) {
+        if (i == b.length - 1) {
+            output = output + b[i];
+        } else {
+            output = output + b[i] + "\n";
+        }
+    }
+
+    document.getElementById('removeDuplicatesInput').value = output;
 };
 
 let randomise = function() {
-	//let a = document.getElementById('randomiseInput').value;
-    let a = 'a\na\nb\nc'; // sample
-	let b = a.split("\n");
+    let a = document.getElementById('randomiseInput').value;
+    //let a = 'a\na\nb\nc'; // sample
+    let b = a.split("\n");
 
     let e = {};
 
@@ -163,26 +162,26 @@ let randomise = function() {
     console.log(b);
     console.log(e);
 
-	let c = [];
-	for (let i = 0; i < b.length; i++) {
-		let d = [];
-		for (let j = 0; j < b.length; j++) {
-			if (c.indexOf(b[j]) < 0) {
-				d.push(b[j]);
-			}
-		}
+    let c = [];
+    for (let i = 0; i < b.length; i++) {
+        let d = [];
+        for (let j = 0; j < b.length; j++) {
+            if (c.indexOf(b[j]) < 0) {
+                d.push(b[j]);
+            }
+        }
 
-		c.push(d[key.round(key.random(d.length - 1))]);
-	}
+        c.push(d[key.round(key.random(d.length - 1))]);
+    }
 
-	let output = "";
-	for (let i = 0; i < c.length; i++) {
-		if (i == c.length - 1) {
-			output = output + c[i];
-		} else {
-			output = output + c[i] + "\n";
-		}
-	}
+    let output = "";
+    for (let i = 0; i < c.length; i++) {
+        if (i == c.length - 1) {
+            output = output + c[i];
+        } else {
+            output = output + c[i] + "\n";
+        }
+    }
 
-	document.getElementById('randomiseInput').value = output;
+    document.getElementById('randomiseInput').value = output;
 }
