@@ -135,6 +135,12 @@ let removeDupelicates = function() {
 
     let b = key.removeDupes(a.split("\n"));
     console.log(b);
+    
+    let e = {};
+    b.forEach(function(x) {
+        e[x] = (e[x] || 0) + 1;
+    });
+    console.log(e);
 
     let output = "";
     for (let i = 0; i < b.length; i++) {
@@ -151,17 +157,10 @@ let removeDupelicates = function() {
 let randomise = function() {
     let a = document.getElementById('randomiseInput').value;
     //let a = 'a\na\nb\nc'; // sample
+    
     let b = a.split("\n");
-
-    let e = {};
-
-    b.forEach(function(x) {
-        e[x] = (e[x] || 0) + 1;
-    });
-
     console.log(b);
-    console.log(e);
-
+    
     let c = [];
     for (let i = 0; i < b.length; i++) {
         let d = [];
