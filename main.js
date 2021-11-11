@@ -133,7 +133,7 @@ let key = (function() {
 let removeDupelicates = function() {
     let a = document.getElementById('removeDuplicatesInput').value;
 
-    let b = a.split("\n"));
+    let b = a.split("\n");
     
     let c = {};
     b.forEach(function(x) {
