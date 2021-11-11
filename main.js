@@ -1,21 +1,21 @@
 /*
 Notes: {
     Use parseInt("Text") to turn into number:
-        var a = "18";
-        var b = parseInt(a) + 2;
+        let a = "18";
+        let b = parseInt(a) + 2;
 
         result of b: 20
         
-    Use var.split(',') to turn into list:
-        var a = "a,b,c,d,e,f,g";
-        var b = a.split(',');
+    Use let.split(',') to turn into list:
+        let a = "a,b,c,d,e,f,g";
+        let b = a.split(',');
 
         result of b: [a,b,c,d,e,f,g];
         
     Use "<br>" to split lines in div:
-        var a = "a" + "<br>";
-        var b = "b" + "<br>";
-        var c = "c";
+        let a = "a" + "<br>";
+        let b = "b" + "<br>";
+        let c = "c";
         document.getElementById('main').innerHTML = a + b + c;
 
         result Output:
@@ -24,26 +24,26 @@ Notes: {
             c
 
     Use number.toString(16) to convert decimal to hex:
-        var a = 69;
-        var b a.toString(16);
+        let a = 69;
+        let b a.toString(16);
 
         result of b: 45;
 
     Use parseInt(hex, 16) to convert hex to decimal:
-        var a = 45;
-        var b = parseInt(a, 16);
+        let a = 45;
+        let b = parseInt(a, 16);
 
         result of b: 69;
 
     Use array.reverse() to reverse list:
-        var a = [2,3,1];
+        let a = [2,3,1];
         a.reverse();
 
         result of a: [1,3,2];
 
     Use n.toPrecision(x) to round number in x significant figures:
-        var a = 3.14159265;
-        var b = a.toPrecision(4);
+        let a = 3.14159265;
+        let b = a.toPrecision(4);
 
         result of b: 3.142;
     
@@ -51,24 +51,24 @@ Notes: {
         a * 10^b
         a - Coefficient
         b - Exponent
-        var c = 0.0054;
-        var exponent = key.round(Math.log(c) / Math.log(10), "down");
-        var coefficient = c * Math.pow(10, -1 * exponent);
+        let c = 0.0054;
+        let exponent = key.round(Math.log(c) / Math.log(10), "down");
+        let coefficient = c * Math.pow(10, -1 * exponent);
 
         result of exponent: -3
                   coefficient: 5.4 
 
     Use Number(string) to turn into a number
-        var a = "3.14159265";
-        var b = Number(a);
+        let a = "3.14159265";
+        let b = Number(a);
 
         result of b: 3.14159265
 
     http://stackoverflow.com/questions/34599303/javascript-sort-list-of-lists-by-sublist-second-entry
 
     Use array.splice(index, 1) to delete array[index]
-        var a = [1, 2, 3];
-        var b = a.splice(1, 1);
+        let a = [1, 2, 3];
+        let b = a.splice(1, 1);
 
         result of b: [1, 3];
 
@@ -76,11 +76,11 @@ Notes: {
 }
 */
 
-var key = (function() {
+let key = (function() {
 	return {
 		random: function(a, b) {
 			b = b || 0;
-            var c = a - b;
+            let c = a - b;
             return (Math.random() * c) + b;
 		},
 
@@ -106,9 +106,9 @@ var key = (function() {
 
         // jQuery Needed       
         removeDupes: function(a) {
-            var b = key.countDupes(a);
-            var c = [];
-            for (var i = 0; i < b.length; i++) {
+            let b = key.countDupes(a);
+            let c = [];
+            for (let i = 0; i < b.length; i++) {
                 c.push(b[i][0]);
             }
             return c;
@@ -116,12 +116,12 @@ var key = (function() {
         // https://stackoverflow.com/questions/19395257/how-to-count-duplicate-value-in-an-array-in-javascript
         // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
         countDupes: function(a) {
-            var b = [];
+            let b = [];
             a.forEach(function(i) {
                 b[i] = (b[i] || 0) + 1;
             });
 
-            var c = [];
+            let c = [];
             for (const d in b) {
                 c.push([`${d}`, parseInt(`${b[d]}`)]);
             }
@@ -131,13 +131,14 @@ var key = (function() {
 	};
 })();
 
-var removeDupelicates = function() {
-	var a = document.getElementById('removeDuplicatesInput').value;
-	var b = key.removeDupes(a.split("\n"));
+let removeDupelicates = function() {
+	let a = document.getElementById('removeDuplicatesInput').value;
+	
+	let b = key.removeDupes(a.split("\n"));
 	console.log(b);
 
-	var output = "";
-	for (var i = 0; i < b.length; i++) {
+	let output = "";
+	for (let i = 0; i < b.length; i++) {
 		if (i == b.length - 1) {
 			output = output + b[i];
 		} else {
@@ -148,15 +149,15 @@ var removeDupelicates = function() {
 	document.getElementById('removeDuplicatesInput').value = output;
 };
 
-var randomise = function() {
-	var a = document.getElementById('randomiseInput').value;
-	var b = a.split("\n");
+let randomise = function() {
+	let a = document.getElementById('randomiseInput').value;
+	let b = a.split("\n");
 	console.log(b);
 
-	var c = [];
-	for (var i = 0; i < b.length; i++) {
-		var d = [];
-		for (var j = 0; j < b.length; j++) {
+	let c = [];
+	for (let i = 0; i < b.length; i++) {
+		let d = [];
+		for (let j = 0; j < b.length; j++) {
 			if (c.indexOf(b[j]) < 0) {
 				d.push(b[j]);
 			}
@@ -165,8 +166,8 @@ var randomise = function() {
 		c.push(d[key.round(key.random(d.length - 1))]);
 	}
 
-	var output = "";
-	for (var i = 0; i < c.length; i++) {
+	let output = "";
+	for (let i = 0; i < c.length; i++) {
 		if (i == c.length - 1) {
 			output = output + c[i];
 		} else {
