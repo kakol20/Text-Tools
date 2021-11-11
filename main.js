@@ -133,15 +133,16 @@ let key = (function() {
 let removeDupelicates = function() {
     let a = document.getElementById('removeDuplicatesInput').value;
 
-    let b = key.removeDupes(a.split("\n"));
-    console.log(b);
+    let b = a.split("\n"));
     
-    let e = {};
+    let c = {};
     b.forEach(function(x) {
-        e[x] = (e[x] || 0) + 1;
+        c[x] = (c[x] || 0) + 1;
     });
-    console.log(e);
-
+    console.log(c);
+    
+    b = key.removeDupes(a.split("\n"));
+    
     let output = "";
     for (let i = 0; i < b.length; i++) {
         if (i == b.length - 1) {
